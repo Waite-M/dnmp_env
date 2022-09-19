@@ -4,6 +4,6 @@
 
 ```shell
 cd dnmp_env
-docker-compose up
+docker-compose up -d
 ```
 
