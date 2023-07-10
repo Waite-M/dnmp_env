@@ -50,12 +50,23 @@ services:
     networks:
       - default
     extra_hosts:
-      - "stock.zs.com:192.168.10.176"
-      - "wmscn.zs.com:192.168.10.176"
-      - "wmscn2.zs.com:192.168.10.176"
-      - "erp.zs.com:192.168.10.176"
-      - "stock.sa.com:192.168.10.176"
- 
+      - "stock.zs.com:192.168.11.89"
+      - "wmscn.zs.com:192.168.11.89"
+      - "wmscn2.zs.com:192.168.11.89"
+      - "erp.zs.com:192.168.11.89"
+      - "stock.sa.com:192.168.11.89"
+
+
+  webman:
+    container_name: webman
+    image: krisss/docker-webman:${DOCKER_WEBMAN_VERSION:-7.4-cli-alpine}
+    ports:
+      - "${DOCKER_WEBMAN_PORT:-8787}:8787"
+    volumes:
+      - .:/app
+    extra_hosts:
+      - "www.localhost.com:172.17.0.1"
+
 
   #  php80:
   #    build:
